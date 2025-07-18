@@ -1,11 +1,278 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Seja bem vindos</h1>
-</body>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Comandos Git e GitHub</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      th,
+      td {
+        border: 1px solid #ccc;
+        padding: 10px;
+        text-align: left;
+      }
+      th {
+        background-color: #f2f2f2;
+      }
+      input {
+        margin-bottom: 10px;
+        padding: 8px;
+        width: 100%;
+      }
+      tr.section-row td {
+        background-color: #ddd;
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: 14px;
+      }
+    </style>
+    <script>
+      function filtrarTabela() {
+        let input = document.getElementById("filtro").value.toLowerCase();
+        let linhas = document.querySelectorAll("tbody tr");
+        linhas.forEach((linha) => {
+          if (!linha.classList.contains("section-row")) {
+            linha.style.display = linha.textContent
+              .toLowerCase()
+              .includes(input)
+              ? ""
+              : "none";
+          }
+        });
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Comandos Git e GitHub</h1>
+    <input
+      type="text"
+      id="filtro"
+      onkeyup="filtrarTabela()"
+      placeholder="Filtrar comandos..."
+    />
+    <table>
+      <thead>
+        <tr>
+          <th>Comando</th>
+          <th>Descrição</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="section-row">
+          <td colspan="2">Comandos Básicos do Git</td>
+        </tr>
+        <tr>
+          <td>git init</td>
+          <td>Inicializa um novo repositório Git local.</td>
+        </tr>
+        <tr>
+          <td>git clone &lt;URL&gt;</td>
+          <td>Clona um repositório remoto para sua máquina local.</td>
+        </tr>
+        <tr>
+          <td>git status</td>
+          <td>Mostra o estado atual do repositório.</td>
+        </tr>
+        <tr>
+          <td>git add &lt;arquivo&gt;</td>
+          <td>Adiciona um arquivo à área de staging.</td>
+        </tr>
+        <tr>
+          <td>git add .</td>
+          <td>Adiciona todos os arquivos modificados para staging.</td>
+        </tr>
+        <tr>
+          <td>git commit -m "mensagem"</td>
+          <td>Cria um commit com uma mensagem.</td>
+        </tr>
+        <tr>
+          <td>git push</td>
+          <td>Envia os commits locais para o repositório remoto.</td>
+        </tr>
+        <tr>
+          <td>git pull</td>
+          <td>Puxa alterações do repositório remoto para o local.</td>
+        </tr>
+        <tr>
+          <td>git fetch</td>
+          <td>Busca mudanças do remoto, sem mesclar.</td>
+        </tr>
+        <tr>
+          <td>git merge &lt;branch&gt;</td>
+          <td>Mescla outra branch à atual.</td>
+        </tr>
+
+        <tr class="section-row">
+          <td colspan="2">Trabalhando com Branches</td>
+        </tr>
+        <tr>
+          <td>git branch</td>
+          <td>Lista todas as branches locais.</td>
+        </tr>
+        <tr>
+          <td>git branch &lt;nome&gt;</td>
+          <td>Cria uma nova branch.</td>
+        </tr>
+        <tr>
+          <td>git checkout &lt;branch&gt;</td>
+          <td>Troca para outra branch.</td>
+        </tr>
+        <tr>
+          <td>git checkout -b &lt;nome&gt;</td>
+          <td>Cria e troca para nova branch.</td>
+        </tr>
+        <tr>
+          <td>git branch -d &lt;branch&gt;</td>
+          <td>Deleta uma branch local.</td>
+        </tr>
+        <tr>
+          <td>git switch &lt;branch&gt;</td>
+          <td>Troca de branch (moderno).</td>
+        </tr>
+
+        <tr class="section-row">
+          <td colspan="2">Histórico e Revisões</td>
+        </tr>
+        <tr>
+          <td>git log</td>
+          <td>Mostra o histórico de commits.</td>
+        </tr>
+        <tr>
+          <td>git log --oneline</td>
+          <td>Histórico compacto.</td>
+        </tr>
+        <tr>
+          <td>git diff</td>
+          <td>Mostra diferenças não commitadas.</td>
+        </tr>
+        <tr>
+          <td>git show &lt;commit&gt;</td>
+          <td>Exibe detalhes de um commit.</td>
+        </tr>
+
+        <tr class="section-row">
+          <td colspan="2">Desfazer Mudanças</td>
+        </tr>
+        <tr>
+          <td>git reset</td>
+          <td>Remove arquivos do staging.</td>
+        </tr>
+        <tr>
+          <td>git reset --hard</td>
+          <td>Descarta todas modificações locais.</td>
+        </tr>
+        <tr>
+          <td>git checkout -- &lt;arquivo&gt;</td>
+          <td>Restaura o arquivo para última versão commitada.</td>
+        </tr>
+        <tr>
+          <td>git revert &lt;commit&gt;</td>
+          <td>Desfaz um commit específico com novo commit.</td>
+        </tr>
+
+        <tr class="section-row">
+          <td colspan="2">Limpeza e Correções</td>
+        </tr>
+        <tr>
+          <td>git clean -f</td>
+          <td>Remove arquivos não rastreados.</td>
+        </tr>
+        <tr>
+          <td>git stash</td>
+          <td>Salva modificações temporárias.</td>
+        </tr>
+        <tr>
+          <td>git stash pop</td>
+          <td>Recupera modificações salvas com stash.</td>
+        </tr>
+
+        <tr class="section-row">
+          <td colspan="2">Git Remoto e GitHub</td>
+        </tr>
+        <tr>
+          <td>git remote -v</td>
+          <td>Lista repositórios remotos.</td>
+        </tr>
+        <tr>
+          <td>git remote add origin &lt;url&gt;</td>
+          <td>Adiciona repositório remoto.</td>
+        </tr>
+        <tr>
+          <td>git push -u origin &lt;branch&gt;</td>
+          <td>Faz push e define branch remota padrão.</td>
+        </tr>
+        <tr>
+          <td>git remote remove origin</td>
+          <td>Remove um repositório remoto.</td>
+        </tr>
+
+        <tr class="section-row">
+          <td colspan="2">Configuração do Git</td>
+        </tr>
+        <tr>
+          <td>git config --global user.name "Seu Nome"</td>
+          <td>Define o nome de usuário.</td>
+        </tr>
+        <tr>
+          <td>git config --global user.email "email@exemplo.com"</td>
+          <td>Define o e-mail do usuário.</td>
+        </tr>
+        <tr>
+          <td>git config --list</td>
+          <td>Exibe configurações ativas.</td>
+        </tr>
+
+        <tr class="section-row">
+          <td colspan="2">GitHub (via terminal)</td>
+        </tr>
+        <tr>
+          <td>gh auth login</td>
+          <td>Login no GitHub via terminal.</td>
+        </tr>
+        <tr>
+          <td>gh repo create</td>
+          <td>Cria repositório GitHub.</td>
+        </tr>
+        <tr>
+          <td>gh repo clone &lt;user&gt;/&lt;repo&gt;</td>
+          <td>Clona um repositório GitHub.</td>
+        </tr>
+        <tr>
+          <td>gh issue list</td>
+          <td>Lista issues.</td>
+        </tr>
+        <tr>
+          <td>gh pr create</td>
+          <td>Cria Pull Request.</td>
+        </tr>
+        <tr>
+          <td>gh pr list</td>
+          <td>Lista Pull Requests.</td>
+        </tr>
+
+        <tr class="section-row">
+          <td colspan="2">Outros Comandos Úteis</td>
+        </tr>
+        <tr>
+          <td>git tag &lt;versão&gt;</td>
+          <td>Marca uma versão com tag.</td>
+        </tr>
+        <tr>
+          <td>git blame &lt;arquivo&gt;</td>
+          <td>Mostra quem alterou cada linha.</td>
+        </tr>
+        <tr>
+          <td>git archive</td>
+          <td>Cria .zip ou .tar do projeto atual.</td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
 </html>
