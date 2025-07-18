@@ -1,3 +1,4 @@
 casa
 carro
 lua
+barco
